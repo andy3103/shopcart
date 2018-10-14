@@ -1,0 +1,135 @@
+.gallery{
+    padding:4.5em;
+    padding-top:0;
+    min-height: 850px;
+    margin-bottom:0;
+}
+
+
+
+
+.wordcount{
+    text-align: center;
+    height:auto;
+    width:200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 5px solid #e7e7e7;
+    border-radius: 7px;
+}
+.wordcount:hover{
+    border: 5px solid #85beef;
+    cursor: pointer;
+}
+.count :hover{
+    border: 1px solid #66afe9;
+}
+
+.fupload{
+    padding-right:8px;
+    margin-left: -5px;
+}
+.upload1{
+    padding-top:4%;
+    font-size: 15px;
+}
+/*
+.choose_content{
+    text-decoration: underline;
+    padding-top:3%;
+   /* margin-right:-20px;
+    margin-right: 0;
+    font-family:'helvetica-light',sans-serif!important;
+}*/
+.file{
+    position:relative;
+}
+.choose-file{
+    position:absolute;
+    z-index:2;
+    top:0;
+    left:0;
+    filter: alpha(opacity=0);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity:0;
+    background-color:transparent;
+    color:transparent;
+}
+.btnrow{
+    margin-top:5%;
+    margin-bottom:8%;
+}
+.choose{
+    padding-left:0;
+    padding-top: 20px;
+}
+.choose1{
+    padding-right: 0;
+    text-align: right;
+    padding-top: 20px;
+}
+.panel-default{
+    border-color: transparent;
+    outline:4px solid #f9f9f9;
+    border-right: 1px;
+}
+.panel-body{
+    padding-left:10em;
+    padding-right:10em;
+    border-color: transparent;
+
+}
+.form-control{
+    border-radius: 0;
+    background-color:#FAFAFA;
+}
+.grey-text{
+    color:#7f7f7f;
+}
+
+@media only screen and (min-width:575px) and (max-width:768px){
+    .panel-body{
+        padding-left:1em;
+        padding-right:1em;
+    }
+
+}
+
+@media only screen and (max-width:1366px){
+    .choose_content {
+        text-decoration: underline;
+        padding-top: 3%;
+        margin-right:-15px;
+        font-family: 'helvetica-light',sans-serif!important;
+    }
+    .upload1{
+        margin-left: -10px;
+    }
+    #select-btn{
+        padding-left:0;
+    }
+    #checkout-btn{
+        right: -15px;
+    }
+
+
+}
+
+@media only screen and (min-width:1517px) and (max-width:1518px) {
+    .choose_content {
+        text-decoration: underline;
+        padding-top: 3%;
+        margin-right: -30px;
+        font-family: 'helvetica-light', sans-serif !important;
+    }
+
+    #select-btn {
+        margin-left: -5px;
+    }
+    /*
+    .table > thead > tr > th {
+        padding-left: 15px!important;
+        padding-right: 15px!important;
+
+    }*/
+}

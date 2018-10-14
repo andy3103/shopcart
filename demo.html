@@ -1,0 +1,113 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+require 'site_controller.php';
+
+class Orderdetails extends Site_Controller
+{
+    function __construct(){
+        parent::__construct();
+        $this->load->model('wix_model');
+    }
+    
+    public function index()
+    {
+          
+    }
+    
+    function put()
+    {
+         $session_data = $this->session->userdata('logged_in');
+         $userid = $this->wix_model->get_user_id($session_data);
+         $uid = $userid[0]->id;
+        
+        $cart_count['cart_count'] = $this->wix_model->cart_count($uid);
+        $cart_items['cart_items'] = $this->wix_model->get_cart_items($uid);
+        $this->load->view('wix/header',  array_merge($cart_count,$cart_items));
+        
+    $id = $this->uri->segment(4);
+      $count['count'] = $this->wix_model->service_by_id($id);
+      $this->load->view('wix/orderdetails.php', $count);
+        
+    }
+    
+   function checkemail()  
+      {  
+          //email logic
+          $session_data = $this->session->userdata('logged_in');
+          $userid = $this->wix_model->get_user_id($session_data);
+           $user_id = $userid[0]->id;
+             $email = $_POST['email'];
+            $email1 = $this->wix_model->emailchecker($email);
+            $email2 = $this->wix_model->user_email_checker($email, $user_id);
+            $email3 = $this->wix_model->blank_email_checker($email,$user_id);
+
+            
+          if($email1 == true && $email2 == false){
+                 echo '<h6><label class="text-danger">Email Already Exists</span></label></h6>';  
+          }else if($email1 == false && $email3 == true){
+              echo 'new user';
+          }else if($email2 == false){
+             echo '<label class="text-info"><h6>This Email ID is different than the one you provided last time, keep it as it is if you wish to proceed with this new Email ID, the system will update your new Email for further Order correspondence. </h6> </label>'; 
+        }
+	 
+      }
+    
+      
+    
+    function checkout()
+    {
+            $form_data = $this->input->post();           
+            $data = array();
+          $session_data = $this->session->userdata('logged_in');
+          $userid = $this->wix_model->get_user_id($session_data);
+            $uid = $userid[0]->id;
+          
+          $top_service_id = $form_data['count']; 
+          $this->load->model('service_model');
+          $service_id = $this->service_model->get_service_id($top_service_id);
+           $s_id = $service_id[0]->service_id;
+           $data['cache_id'] = 1;
+           $data['user_id'] = $uid;           
+          $data['s_id'] = $s_id;
+          $data['language_id'] = 1;          
+        $data['service_id'] = $form_data['count'];
+        $email = $form_data['email'];
+        $data['title'] = $form_data['title'];
+        $data['keywords'] = $form_data['keywords'];
+        $data['instructions'] = $form_data['instruction'];
+        $data['referrence_file'] = '';
+        $data['quantity'] = 1;
+        $data['cache_item'] = 0;
+        $data['date_created'] = date("Y-m-d h:i:s", time());
+        $data['source'] = "wix";
+
+
+         $this->load->model('file_upload_model');
+         $result = $this->file_upload_model->do_upload('file', 'doc|docx|rtf|pdf|jpg|png|txt|odt|xps|jpeg|xlsx|xls', 'referrence_articles');
+
+        if (!$result['error']) {
+
+            $data['referrence_file'] = $result['file_path'];
+
+        }
+        $insert_id = $this->db->insert('cart_items', $data);
+        $query = $this->db->query('update users set email = "'.$email.'" where id = "'.$uid.'"');
+        $cart_items = $this->wix_model->get_cart_items($uid);
+    }
+     
+     function cartitem()
+     {
+         //delete cart items function 
+         $id = $_GET['id'];
+         $query = $this->db->query('delete from cart_items where id = "'.$id.'"');
+         $session_data = $this->session->userdata('logged_in');
+          $userid = $this->wix_model->get_user_id($session_data);
+            $uid = $userid[0]->id;
+        $cart_count['cart_count'] = $this->wix_model->cart_count($uid);
+        $cart_items['cart_items'] = $this->wix_model->get_cart_items($uid);
+        $this->load->view('wix/header',  array_merge($cart_count,$cart_items));
+        $cart_items['cart_items'] = $this->wix_model->get_cart_items($uid);
+          redirect('wix/view_cart');
+     }
+
+}

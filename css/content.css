@@ -1,0 +1,36 @@
+h1{
+    font-weight:100!important;
+}
+#order p{
+    margin-top: 0;
+    padding-top: 0;
+}
+.head-content{
+    padding-bottom: 0;
+}
+.grey-text{
+    color:#BDBDBD;
+}
+.pen-img{
+    margin-top:50px;
+    margin-bottom:10px;
+    width:280px;
+}
+
+.content{
+    margin-bottom:10px;
+}
+
+.content span{
+    font-family:'HelveticaNeue-UltraLight',sans-serif;
+    font-weight:100!important;
+    color: #BDBDBD;
+    font-size: 36px;
+}
+
+
+
+.btn-content{
+    padding-right: 15px;
+    padding-left: 15px;
+}

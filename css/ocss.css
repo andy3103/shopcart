@@ -1,0 +1,108 @@
+.gallery{
+    padding:2.3em;
+}
+
+/*
+.table{
+    border-radius: 3px;
+}
+.table>thead>tr>th{
+    padding: 11px !important;
+    border-bottom:3px solid #ffffff;
+}
+.table>tbody>tr>td{
+    border-bottom: 3px solid #ffffff;
+    padding-bottom: 8px !important;
+    padding-top: 8px !important;
+}*/
+
+
+.table>thead>tr>th{
+    padding-right:11px!important;
+    padding-left:11px!important;
+    border-bottom:3px solid #ffffff;
+
+}
+.table>tbody>tr>td{
+    border-bottom: 3px solid #ffffff;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+}
+.table>tbody>tr>td.others{
+    padding-top:18px!important;
+    color:#5e5e5e;
+}
+.grey2{
+    outline:1px solid transparent;
+}
+.download{
+    background-color:#34db7b;
+    border-color:#34db7b;
+    padding:6px;
+    padding-top: 8px;
+    padding-bottom:7px;
+
+    color: #ffffff;
+    border-bottom:2px solid #32cd32;
+    font-size: 11px;
+}
+.download i.fa{
+    color: #ffffff;
+    margin-left:-1px;
+    margin-right: 1px;
+}
+.download :active,.download :visited,.download:hover,.download :focus{
+    color:#ffffff;
+    background-color:#34db7b;
+}
+.btn{
+    white-space:normal !important;
+    word-wrap: break-word;
+}
+#changes{
+    text-align: left;
+    font-size:11px;
+    width:165px;
+    padding-top:1px;
+    padding-bottom:0;
+    /*height: 35px;*/
+    height: 33px;
+    color: #ffffff;
+    background-color:#21d6b2;
+    border-bottom:2px solid #20b2aa;
+    margin-left: -3px;
+}
+
+#changes small{
+ border: none;
+    font-size: 10px;
+}
+#changes small:hover,#changes small:focus,#changes small:active{
+ border: none;
+}
+#changes :hover,#changes :active,#changes :visited,#changes :focus{
+    box-shadow: none;
+    border:none;
+    background-color:#21d6b2;
+    outline:none;
+}
+
+#changes .btn-default:hover,#changes .btn-default:active,#changes .btn-default:visited ,#changes .btn-default:focus{
+    border: none;
+    outline: none;
+}
+.fupload{
+    margin-left: 0;
+    padding-right: 3px;
+}
+span.submit{
+    font-size: 11px;
+    padding: 0;
+    color: #333;
+    font-weight:500;
+    font-family: 'helvetica-light',sans-serif;
+}
+
+.hiddenRow {
+    padding: 0 !important;
+}
